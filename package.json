@@ -1,0 +1,39 @@
+{
+  "name": "yui-ide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "本地优先的桌面 IDE，将 DeepSeek 网页版嵌入编码工作流。A local-first desktop IDE with DeepSeek embedded, built with Electron and CodeMirror.",
+  "main": "main.js",
+  "author": "JackHanXyz (https://github.com/JackHanXyz)",
+  "license": "MIT",
+  "homepage": "https://github.com/JackHanXyz/Yui-IDE#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JackHanXyz/Yui-IDE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JackHanXyz/Yui-IDE/issues"
+  },
+  "keywords": [
+    "electron",
+    "ide",
+    "deepseek",
+    "code-editor",
+    "codemirror",
+    "desktop"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.js && node --check preload.js && node --check deepseek-preload.js && node --check src/renderer.js",
+    "smoke": "electron . --smoke-test"
+  },
+  "dependencies": {
+    "codemirror": "5.65.16"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0"
+  }
+}

@@ -1,0 +1,15 @@
+node_modules/
+workspace/
+captures/
+dist/
+out/
+release/
+*.log
+*.asar
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
