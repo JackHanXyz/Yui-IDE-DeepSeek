@@ -229,7 +229,7 @@
 
   function updateWindowTitle() {
     const dirty = state.tabs.some((tab) => tab.dirty);
-    document.title = dirty ? 'Yui-IDE •' : 'Yui-IDE';
+    document.title = dirty ? 'Yui-IDE-DeepSeek •' : 'Yui-IDE-DeepSeek';
     if (state.dirtyReported !== dirty) {
       state.dirtyReported = dirty;
       api.setDirty(dirty);
@@ -903,7 +903,7 @@
     const from = state.cm.getCursor('from');
     const to = state.cm.getCursor('to');
     const fence = content.includes('```') ? '````' : '```';
-    let header = `以下是我在 Yui-IDE 中打开的文件，请作为上下文参考：\n\n文件: ${relPath(tab.path)}`;
+    let header = `以下是我在 Yui-IDE-DeepSeek 中打开的文件，请作为上下文参考：\n\n文件: ${relPath(tab.path)}`;
     if (selection) header += `（第 ${from.line + 1}-${to.line + 1} 行）`;
     const text = `${header}\n${fence}${fenceForPath(tab.path)}\n${content.replace(/\r\n/g, '\n')}\n${fence}\n`;
     await insertIntoDeepSeek(text);
@@ -913,7 +913,7 @@
     if (!state.workspace) return;
     try {
       const outline = await api.projectOutline();
-      const text = `以下是我的项目结构（来自 Yui-IDE），请作为上下文参考：\n\n\`\`\`text\n${outline}\n\`\`\`\n`;
+      const text = `以下是我的项目结构（来自 Yui-IDE-DeepSeek），请作为上下文参考：\n\n\`\`\`text\n${outline}\n\`\`\`\n`;
       await insertIntoDeepSeek(text);
     } catch (error) {
       toast(`获取项目结构失败：${cleanError(error)}`, 'error');
@@ -1355,7 +1355,7 @@
       try {
         state.webview.loadURL(state.info.deepseekUrl || 'https://chat.deepseek.com/');
       } catch {
-        showErrorOverlay('无法加载 DeepSeek', '请尝试重启 Yui-IDE。');
+        showErrorOverlay('无法加载 DeepSeek', '请尝试重启 Yui-IDE-DeepSeek。');
       }
     }
   }
@@ -1602,7 +1602,7 @@
 
   async function init() {
     if (!api) {
-      document.body.textContent = 'Yui-IDE 预加载脚本未生效。';
+      document.body.textContent = 'Yui-IDE-DeepSeek 预加载脚本未生效。';
       return;
     }
     bindEvents();

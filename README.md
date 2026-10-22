@@ -2,7 +2,7 @@
 
 一个把 DeepSeek 网页版嵌入编码工作流的本地桌面 IDE，基于 Electron 与 CodeMirror。
 
-> **Yui-IDE** 不试图成为另一个全功能编辑器。它只把三件事放进同一个窗口：
+> **Yui-IDE-DeepSeek** 不试图成为另一个全功能编辑器。它只把三件事放进同一个窗口：
 > 左边看项目，中间写代码，右边问 DeepSeek。
 > 当前文件、选中文本和项目结构可以一键插入对话，回复里的代码块也能抓回本地。
 > 所有文件操作都在本机完成，不需要 API Key，没有遥测。
@@ -24,7 +24,7 @@
 
 ## 界面
 
-![Yui-IDE 界面](docs/screenshot.png)
+![Yui-IDE-DeepSeek 界面](docs/screenshot.png)
 
 ## 快速开始
 
@@ -60,7 +60,7 @@ npm start
 
 - 悬停在 DeepSeek 回复的代码块上，点击 **发送到 IDE**，保存该代码块。
 - 点击工具栏的 **抓取最新代码**，保存最新回复中的全部代码块，并打开第一个文件。
-- 开启 **自动抓取** 后，Yui-IDE 会监视之后出现的代码块，按内容去重并自动保存。
+- 开启 **自动抓取** 后，Yui-IDE-DeepSeek 会监视之后出现的代码块，按内容去重并自动保存。
 
 抓取的文件保存在当前工作区的 `captures/` 目录，文件名包含时间、内容哈希和推断出的扩展名。
 
@@ -99,8 +99,8 @@ Yui-IDE-DeepSeek/
 
 ## 数据与隐私
 
-- Yui-IDE 不包含服务端，不收集统计信息，也不会把文件上传到除 DeepSeek 页面之外的任何地方。
-- 设置与 DeepSeek 登录会话保存在 Electron 的用户数据目录（Windows 默认为 `%APPDATA%\yui-ide`）。
+- Yui-IDE-DeepSeek 不包含服务端，不收集统计信息，也不会把文件上传到除 DeepSeek 页面之外的任何地方。
+- 设置与 DeepSeek 登录会话保存在 Electron 的用户数据目录（Windows 默认为 `%APPDATA%\yui-ide-deepseek`）。
 - 抓取的文件只写入当前工作区的 `captures/` 目录。
 - DeepSeek 页面本身的数据处理遵循 DeepSeek 的服务条款与隐私政策。
 
@@ -129,7 +129,7 @@ npm run smoke   # 启动窗口并执行内置冒烟测试
 - [Electron](https://www.electronjs.org/)
 - [CodeMirror 5](https://codemirror.net/5/)（MIT，许可证保留在 `vendor/codemirror/LICENSE`）
 
-Yui-IDE 是非官方项目，与 DeepSeek 无隶属或背书关系。
+Yui-IDE-DeepSeek 是非官方项目，与 DeepSeek 无隶属或背书关系。
 
 ## 许可
 

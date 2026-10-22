@@ -65,7 +65,7 @@ function ensureDir(dir) {
 }
 
 function loadSettings() {
-  settingsFile = path.join(app.getPath('userData'), 'yui-ide-settings.json');
+  settingsFile = path.join(app.getPath('userData'), 'yui-ide-deepseek-settings.json');
   try {
     settings = JSON.parse(fs.readFileSync(settingsFile, 'utf8'));
   } catch {
@@ -80,7 +80,7 @@ function saveSettings() {
     ensureDir(path.dirname(settingsFile));
     fs.writeFileSync(settingsFile, JSON.stringify(settings, null, 2), 'utf8');
   } catch (error) {
-    console.error('[Yui-IDE] Failed to save settings:', error.message);
+    console.error('[Yui-IDE-DeepSeek] Failed to save settings:', error.message);
   }
 }
 
@@ -89,8 +89,8 @@ function configureDeepSeekSession() {
   let userAgent = dsSession.getUserAgent();
   userAgent = userAgent
     .replace(/\sElectron\/[\d.]+/gi, '')
-    .replace(/\sYui-IDE\/[\d.]+/gi, '')
-    .replace(/\syui-ide\/[\d.]+/gi, '');
+    .replace(/\sYui-IDE-DeepSeek\/[\d.]+/gi, '')
+    .replace(/\syui-ide-deepseek\/[\d.]+/gi, '');
   dsSession.setUserAgent(userAgent);
   dsSession.setPermissionRequestHandler((webContents, permission, callback) => {
     callback(permission === 'clipboard-read');
@@ -208,9 +208,9 @@ function registerIpc() {
     if (smokeReady) return;
     smokeReady = true;
     if (smokeTimer) clearTimeout(smokeTimer);
-    console.log('[Yui-IDE] renderer ready');
+    console.log('[Yui-IDE-DeepSeek] renderer ready');
     setTimeout(() => {
-      console.log('[Yui-IDE] smoke test passed');
+      console.log('[Yui-IDE-DeepSeek] smoke test passed');
       app.exit(0);
     }, 2500);
   });
@@ -441,7 +441,7 @@ function createWindow() {
     minWidth: 1080,
     minHeight: 680,
     backgroundColor: '#0a0c10',
-    title: 'Yui-IDE',
+    title: 'Yui-IDE-DeepSeek',
     icon: path.join(APP_DIR, 'assets', 'icon.png'),
     autoHideMenuBar: true,
     show: false,
@@ -522,7 +522,7 @@ function createWindow() {
   });
 
   mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription, validatedURL) => {
-    console.error(`[Yui-IDE] Host page failed to load (${errorCode}): ${errorDescription} ${validatedURL}`);
+    console.error(`[Yui-IDE-DeepSeek] Host page failed to load (${errorCode}): ${errorDescription} ${validatedURL}`);
   });
 
   if (SMOKE_TEST) {
@@ -538,7 +538,7 @@ function createWindow() {
 function armSmokeTest() {
   if (!SMOKE_TEST) return;
   smokeTimer = setTimeout(() => {
-    console.error('[Yui-IDE] smoke test timed out waiting for renderer');
+    console.error('[Yui-IDE-DeepSeek] smoke test timed out waiting for renderer');
     app.exit(1);
   }, 30000);
 }
@@ -574,7 +574,7 @@ if (!gotSingleInstanceLock) {
         }
       });
       contents.on('preload-error', (preloadEvent, preloadPath, error) => {
-        console.error(`[Yui-IDE] DeepSeek preload error (${preloadPath}):`, error);
+        console.error(`[Yui-IDE-DeepSeek] DeepSeek preload error (${preloadPath}):`, error);
       });
     }
   });
@@ -586,7 +586,7 @@ if (!gotSingleInstanceLock) {
     try {
       ensureDir(DEFAULT_WORKSPACE);
     } catch (error) {
-      console.error('[Yui-IDE] Could not create default workspace:', error.message);
+      console.error('[Yui-IDE-DeepSeek] Could not create default workspace:', error.message);
     }
     currentWorkspace = normalizeWorkspace(settings.lastWorkspace) || DEFAULT_WORKSPACE;
     settings.lastWorkspace = currentWorkspace;
