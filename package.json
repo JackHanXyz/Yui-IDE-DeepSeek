@@ -6,13 +6,13 @@
   "main": "main.js",
   "author": "JackHanXyz (https://github.com/JackHanXyz)",
   "license": "MIT",
-  "homepage": "https://github.com/JackHanXyz/Yui-IDE#readme",
+  "homepage": "https://github.com/JackHanXyz/Yui-IDE-DeepSeek#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JackHanXyz/Yui-IDE.git"
+    "url": "https://github.com/JackHanXyz/Yui-IDE-DeepSeek.git"
   },
   "bugs": {
-    "url": "https://github.com/JackHanXyz/Yui-IDE/issues"
+    "url": "https://github.com/JackHanXyz/Yui-IDE-DeepSeek/issues"
   },
   "keywords": [
     "electron",

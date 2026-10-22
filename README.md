@@ -1,4 +1,4 @@
-# Yui-IDE
+# Yui-IDE-DeepSeek
 
 一个把 DeepSeek 网页版嵌入编码工作流的本地桌面 IDE，基于 Electron 与 CodeMirror。
 
@@ -31,8 +31,8 @@
 要求：Windows 10/11，Node.js 20 或更高版本。
 
 ```bash
-git clone https://github.com/JackHanXyz/Yui-IDE.git
-cd Yui-IDE
+git clone https://github.com/JackHanXyz/Yui-IDE-DeepSeek.git
+cd Yui-IDE-DeepSeek
 npm install
 npm start
 ```
@@ -79,7 +79,7 @@ npm start
 ## 目录结构
 
 ```text
-Yui-IDE/
+Yui-IDE-DeepSeek/
 ├── assets/                  # 应用图标
 ├── docs/                    # 截图
 ├── src/
